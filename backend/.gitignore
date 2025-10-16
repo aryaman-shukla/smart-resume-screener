@@ -1,0 +1,68 @@
+# Python bytecode
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.so
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+virtualenv/
+
+# Environment variables (IMPORTANT!)
+.env
+.env.local
+.env.*.local
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+resumes.db
+
+# Logs
+*.log
+logs/
+*.out
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Flask specific
+instance/
+.webassets-cache
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Uploaded files (optional)
+uploads/
+temp/
