@@ -30,11 +30,6 @@ An intelligent AI-powered resume screening system that matches candidates with j
 
 ## 🏗️ Architecture
 
-# System Architecture
-
-## Overview
-Smart Resume Screener uses a client-server architecture with the following components:
-
 ### Frontend (React)
 - User interface for uploading resumes
 - Job description input
