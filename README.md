@@ -30,68 +30,40 @@ An intelligent AI-powered resume screening system that matches candidates with j
 
 ## 🏗️ Architecture
 
-The **Smart Resume Screener** follows a modular, service-oriented architecture:
+# System Architecture
 
-### **1. Input Layer**
-- **Resume Upload Service:** Accepts PDF/Text resumes via REST API or dashboard.  
-- **Job Description Input:** Accepts text or file upload for analysis.
+## Overview
+Smart Resume Screener uses a client-server architecture with the following components:
 
-### **2. Parsing & Extraction Layer**
-- **Resume Parser:**
-  - Uses NLP tools (spaCy / PyPDF2 / pdfplumber) to extract *skills, education, experience,* and *achievements*.
-  - Converts unstructured resumes into structured JSON.
+### Frontend (React)
+- User interface for uploading resumes
+- Job description input
+- Results visualization
+- Real-time analysis feedback
 
-### **3. LLM Semantic Matching Layer**
-- **Purpose:** Uses an LLM (GPT-4 / Claude / Gemini) to perform **semantic similarity**, **fit scoring**, and **contextual matching**.
-- **Functions:**
-  - Compare resumes and job descriptions.
-  - Generate a **match score (1–10)**.
-  - Provide a **textual justification**.
-  - Identify **matched** and **missing skills**.
-- Implemented using LangChain or a custom LLM wrapper.
+### Backend (Flask/Python)
+- REST API endpoints
+- PDF/Text parsing
+- LLM integration
+- Database management
 
-### **4. Scoring & Ranking Layer**
-- Aggregates results from the LLM:
-  - `match_score`
-  - `matched_skills`
-  - `missing_skills`
-  - `fit_summary`
-- Stores structured results in a SQL database.
-- Automatically ranks candidates by match score.
+### Database (SQLite)
+- Resume storage
+- Screening results
+- Historical analysis
 
-### **5. Storage Layer**
-- **Database:** PostgreSQL / MySQL  
-- **Core Tables:**
-  - `resumes`
-  - `job_descriptions`
-  - `matches`
-  - `skills`
-- Stores parsed resume data, job descriptions, and computed match results.
+### LLM Integration
+- OpenAI GPT-4 (primary)
+- Fallback rule-based matching
+- Semantic analysis
+- Score calculation
 
-### **6. API Layer**
-- **Backend Framework:** FastAPI / Flask / Express.js  
-- **Key Endpoints:**
-  - `POST /upload_resume`
-  - `POST /upload_job_description`
-  - `GET /get_matches`
-- Handles file parsing, LLM calls, and database interactions.
-
-### **7. Frontend Layer (Optional)**
-- **Framework:** React.js + Tailwind CSS  
-- **Features:**
-  - Resume and JD upload interface  
-  - Visualization of scores and skill matches  
-  - Candidate ranking table with justifications  
-
-### **8. Deployment**
-- **Containerization:** Docker  
-- **Hosting:** Render / AWS / Railway  
-- **Environment Variables:**  
-  - `OPENAI_API_KEY`  
-  - `DB_URL`  
-  - `MODEL_NAME`  
-
----
+## Data Flow
+1. User uploads resume(s) + job description
+2. Backend parses and extracts structured data
+3. LLM analyzes resume against job requirements
+4. Results stored in database
+5. Frontend displays ranked candidates
 
 ## 🧠 LLM Prompts
 
